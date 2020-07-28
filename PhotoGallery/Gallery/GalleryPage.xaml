@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Gallery"
+             x:Class="Gallery.GalleryPage">
+    <StackLayout>
+        <Label Text="{Binding Source={x:Reference Name= imageModels}, Path=SelectedItem.Title}"
+               FontSize="Large" />
+        <ListView x:Name="imageModels"
+                  HasUnevenRows="True"
+                  ItemsSource="{Binding ImageModels}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ImageCell
+                        ImageSource="{Binding ImagePath}"
+                        Text="{Binding Title}"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
